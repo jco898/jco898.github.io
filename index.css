@@ -1,1 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    background-color: snow;
+    color: black;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(44, 44, 44);
+    color: white;
+    font-size: 24px;
+}
+
+.name-header {
+    display: flex;
+    align-items: center;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+}
+
+li {
+    padding: 15px;
+}
+
+li:hover {
+    background-color: rgb(66, 66, 66);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
