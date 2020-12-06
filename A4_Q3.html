@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Question 3</title>
+    </head>
+    <body>
+        <canvas width="500" height="300" style="border:1px solid"></canvas>
+        <script>
+        const canvas = document.getElementsByTagName('canvas')[0];
+        const context = canvas.getContext('2d');
+
+        class Bubble {
+            constructor(color) {
+                /* Initiliaze the bubble's properties */
+                this.radius = 50;
+                this.x = this.radius + (Math.random() * (canvas.width - (this.radius * 2)));
+                this.y = this.radius + (Math.random() * (canvas.height - (this.radius * 2)));
+                this.color = color;
+                this.xStep = 1;
+            }
+
+            draw() {
+                /* Code concerning the drawing of the bubble should go here */
+                context.beginPath();
+                context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+                context.closePath();
+                context.fillStyle = this.color;
+                context.fill();
+                context.stroke();
+                
+            }
+
+            update(bubbleArray) {
+                /* Code concerning the manipulation of the bubble properties should go here */
+                if ((this.x + this.radius) > canvas.width || (this.x - this.radius) < 0) {
+                    this.xStep = -this.xStep;
+                }
+                
+                this.x += this.xStep;
+
+                let currentBubble = this;
+
+                bubbleArray.forEach(function(bubble) {
+                    if (currentBubble !== bubble) {
+                        let dx = currentBubble.x - bubble.x;
+                        let dy = currentBubble.y - bubble.y;
+                        let distance = Math.sqrt((dx * dx) + (dy * dy));
+
+                        if (distance < (currentBubble.radius + bubble.radius)) {
+                            currentBubble.color = 'rgb(' + (Math.floor(Math.random() * 255) + 1) + ',' + (Math.floor(Math.random() * 255) + 1) + ',' + (Math.floor(Math.random() * 255) + 1) + ')';
+                            bubble.color = 'rgb(' + (Math.floor(Math.random() * 255) + 1) + ',' + (Math.floor(Math.random() * 255) + 1) + ',' + (Math.floor(Math.random() * 255) + 1) + ')';
+                        }
+                    }
+                })
+                
+                this.draw();
+            }
+        }
+
+        let bubbleArray = [];
+        let bubble1 = new Bubble("blue");
+        let bubble2 = new Bubble("red");
+        let bubble3 = new Bubble("green");
+        bubbleArray.push(bubble1);
+        bubbleArray.push(bubble2);
+        bubbleArray.push(bubble3);
+
+        function animate() {
+            requestAnimationFrame(animate);
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            bubbleArray.forEach(function(bubble) {
+                bubble.update(bubbleArray);
+            })
+        }
+
+        animate();
+        </script>
+    </body>
+</html>
