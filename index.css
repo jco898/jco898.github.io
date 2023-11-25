@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+header {
+    background-color:rgb(72, 136, 179);
+    display: flex;
+    justify-content: space-around;
+}
+
+.nameHeader {
+    display: flex;
+    align-items: center;
+    font-size: large;
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+    min-width: 1300px;
+}
+
+h1, h2 {
+    color: rgb(72, 136, 179);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    padding: 15px;
+}
+
+nav ul li:hover {
+    background-color: rgb(56, 108, 143);
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+.nameHeader a {
+    text-decoration: none;
+    color: white;
+}
+
+.mainContainer {
+    display: flex;
+    justify-content: space-evenly;
+    min-width: 1300px;
+}
+
+.aboutMe {
+    max-width: 400px;
+    position: relative;
+}
+
+.skills {
+    max-width: 325px;
+    position: relative;
+}
+
+.h2Container, .iconContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+.contactOuter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contactInfoContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.contactInfoContainer img {
+    margin: 0 15px;
+}
+
+.languagesContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+#icon {
+    width: 100px;
+}
+
+.technologiesContainer {
+    display: flex;
+    justify-content: space-between;
+    min-width: 475px;
+}
+
+.technologiesUlRight {
+    margin-left: -20px;
+}
+
+p, li {
+    font-size: larger;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+footer a {
+    font-size: small;
+    text-decoration: none;
+    color: inherit;
+}
